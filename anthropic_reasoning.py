@@ -2,13 +2,17 @@ import streamlit as st
 import instructor
 from anthropic import Anthropic
 from pydantic import BaseModel
-import os
-import time
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 from dotenv import load_dotenv
 
 load_dotenv()
 
 claude_key = os.getenv("ANTHROPIC_CLAUDE_KEY")
+MODEL_COST_INPUT = 3 / 1_000_000
+MODEL_COST_OUTPUT = 15 / 1_000_000
 
 # Set up the Anthropic client with instructor
 client = instructor.from_anthropic(Anthropic(api_key=""), mode=instructor.mode.Mode.ANTHROPIC_JSON)
