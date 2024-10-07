@@ -4,6 +4,11 @@ from anthropic import Anthropic
 from pydantic import BaseModel
 import os
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
+
+claude_key = os.getenv("ANTHROPIC_CLAUDE_KEY")
 
 # Set up the Anthropic client with instructor
 client = instructor.from_anthropic(Anthropic(api_key=""), mode=instructor.mode.Mode.ANTHROPIC_JSON)

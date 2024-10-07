@@ -1,0 +1,6 @@
+anthropic
+instructor
+openai
+pydantic
+python-dotenv
+streamlit

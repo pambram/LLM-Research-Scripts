@@ -3,13 +3,16 @@ from openai import OpenAI
 import os
 import json
 import time
+from dotenv import load_dotenv
+load_dotenv()
 
 
+openai_key = os.getenv("OPENAI_API_KEY")
 
 
 client = OpenAI(
     # This is the default and can be omitted
-    api_key="",
+    api_key=openai_key,
 )
 
 def make_api_call(messages, max_tokens, is_final_answer=False):
